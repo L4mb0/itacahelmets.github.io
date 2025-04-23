@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Primera sección azul con forma curva (NOSOTROS) -->
+<section class="bg-blue-900 text-white py-16 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-full h-full rounded-bl-[50%] bg-blue-900"></div>
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 relative z-10">
+    <div class="md:w-1/3">
+      <img src="{{ url_for('static', filename='images/nosotros.jpg') }}" alt="Casco de motocicleta al atardecer" class="rounded-lg shadow-lg w-full h-auto object-cover">
+    </div>
+    <div class="md:w-2/3">
+      <h2 class="text-5xl font-extrabold mb-4">NOSOTROS</h2>
+      <p class="mb-4 text-lg">En ITACA no creemos en los destinos finales, creemos en la ruta. Nacimos del deseo de vivir la carretera como una experiencia profunda, intensa y transformadora. Como Ulises en su regreso a casa, sabemos que cada viaje deja marcas en el alma y que cada aventura construye quiénes somos.</p>
+      <p class="text-lg">Somos motociclistas, aventureros y apasionados por los caminos. Diseñamos cascos y accesorios con propósito: acompañarte, protegerte y potenciar esa sensación única de libertad que solo se encuentra al rodar. ITACA no es solo una marca, es un símbolo de los que viven el viaje con los sentidos despiertos y el corazón abierto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Segunda sección amarilla con forma curva (MISIÓN) -->
+<section class="bg-yellow-400 py-16 relative overflow-hidden mt-12">
+  <div class="absolute top-0 left-0 w-full h-full rounded-br-[50%] bg-yellow-400"></div>
+  <div class="container mx-auto px-4 flex flex-col md:flex-row-reverse items-center gap-8 relative z-10">
+    <div class="md:w-1/3">
+      <img src="{{ url_for('static', filename='images/mision.jpg') }}" alt="Detalle de casco de motocicleta" class="rounded-lg shadow-lg w-full h-auto object-cover">
+    </div>
+    <div class="md:w-2/3">
+      <h2 class="text-5xl font-extrabold mb-4">MISIÓN</h2>
+      <p class="text-lg mb-4">Inspirar a cada motociclista a vivir la ruta como una experiencia única, brindándoles productos que combinen diseño, seguridad y autenticidad. Acompañamos cada viaje con equipamiento de alta calidad, pensado para quienes convierten el camino en su forma de vida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Tercera sección azul con forma curva (VISIÓN) -->
+<section class="bg-blue-900 text-white py-16 relative overflow-hidden mt-12">
+  <div class="absolute top-0 right-0 w-full h-full rounded-bl-[50%] bg-blue-900"></div>
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-8 relative z-10">
+    <div class="md:w-1/3">
+      <img src="{{ url_for('static', filename='images/vision.jpg') }}" alt="Casco de motocicleta en carretera" class="rounded-lg shadow-lg w-full h-auto object-cover">
+    </div>
+    <div class="md:w-2/3">
+      <h2 class="text-5xl font-extrabold mb-4">VISIÓN</h2>
+      <p class="text-lg">Ser una marca referente en el mundo del motociclismo por conectar con el espíritu aventurero de quienes no buscan solo llegar, sino descubrir. Queremos formar una comunidad global que entienda que la verdadera riqueza del viaje no está en el destino, sino en cada paso del camino.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sección de suscripción -->
+<section class="py-12 mt-12">
+  <div class="container mx-auto px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold mb-2">SUBSCRÍBETE Y RECIBE UN CATÁLOGO</h2>
+      <form class="w-full">
+        <div class="flex mb-2">
+          <input type="email" placeholder="EMAIL" class="flex-grow border border-gray-300 px-4 py-2" required>
+          <button type="submit" class="bg-yellow-400 px-6 py-2 font-bold">SIGN UP</button>
+        </div>
+        <p class="text-xs text-gray-600 mt-2">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Estilos para los semicírculos y las imágenes */
+  section {
+    overflow: hidden;
+  }
+  
+  .rounded-bl-[50%] {
+    border-bottom-left-radius: 50%;
+  }
+  
+  .rounded-br-[50%] {
+    border-bottom-right-radius: 50%;
+  }
+  
+  img {
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  /* Estilos responsive */
+  @media (max-width: 768px) {
+    img {
+      height: 250px;
+      width: 100%;
+    }
+  }
+</style>
+{% endblock %}

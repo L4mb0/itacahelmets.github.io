@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Cabecera con imagen de fondo y título del casco -->
+<div class="relative w-full h-64 mb-8">
+  <img src="{{ url_for('static', filename='img/helmets-bg.jpg') }}" alt="Background" class="w-full h-full object-cover">
+  <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30">
+    <h1 class="text-6xl font-bold text-white tracking-wider">CASCO {{ casco.nombre|upper }}</h1>
+  </div>
+</div>
+
+<!-- Sección principal del producto -->
+<div class="container mx-auto px-4 py-6">
+  <div class="flex flex-col md:flex-row gap-8 mb-16">
+    <!-- Imagen principal del casco -->
+    <div class="w-full md:w-2/5">
+      <div class="bg-blue-950 p-2">
+        <img src="{{ url_for('static', filename=casco.imagen_principal) }}" class="w-full h-auto" alt="{{ casco.nombre }}">
+      </div>
+      <!-- Flechas de navegación -->
+      <div class="flex justify-between mt-2">
+        <div class="bg-gray-200 p-2 cursor-pointer">
+          <span class="text-3xl font-bold">«</span>
+        </div>
+        <div class="flex items-end justify-end gap-2">
+          <p class="text-gray-700">Lorem ipsum dolor</p>
+          <p class="font-semibold">S/ {{ casco.precio }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Información del casco -->
+    <div class="w-full md:w-3/5">
+      <h2 class="text-5xl font-bold mb-6">Lorem ipsum Dol</h2>
+      <div class="space-y-4 text-gray-700">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+      </div>
+      
+      <!-- Botón de compra -->
+      <div class="mt-8 flex justify-end">
+        <button class="bg-blue-900 text-white px-6 py-2 hover:bg-blue-800 transition">Comprar ahora</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Sección de productos relacionados -->
+  <div class="mb-12">
+    <h3 class="text-3xl font-bold text-center mb-8">También te puede interesar</h3>
+    
+    <div class="flex flex-wrap md:flex-nowrap gap-4 relative">
+      <!-- Flechas de navegación izquierda -->
+      <div class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 cursor-pointer">
+        <span class="text-3xl font-bold">«</span>
+      </div>
+      
+      <!-- Productos relacionados -->
+      <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+        <div class="bg-blue-950">
+          <img src="{{ url_for('static', filename='img/cascos/casco-negro1.jpg') }}" alt="Casco relacionado" class="w-full h-48 object-contain">
+        </div>
+        <div class="mt-2">
+          <p class="text-sm">Lorem ipsum dolor</p>
+          <div class="flex justify-between items-center">
+            <p class="font-semibold">S/ 000</p>
+          </div>
+          <p class="text-xs text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam</p>
+        </div>
+      </div>
+      
+      <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+        <div class="bg-yellow-400">
+          <img src="{{ url_for('static', filename='img/cascos/casco-negro2.jpg') }}" alt="Casco relacionado" class="w-full h-48 object-contain">
+        </div>
+        <div class="mt-2">
+          <p class="text-sm">Lorem ipsum dolor</p>
+          <div class="flex justify-between items-center">
+            <p class="font-semibold">S/ 000</p>
+          </div>
+          <p class="text-xs text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam</p>
+        </div>
+      </div>
+      
+      <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+        <div class="bg-blue-800">
+          <img src="{{ url_for('static', filename='img/visores/visor1.jpg') }}" alt="Visor relacionado" class="w-full h-48 object-contain">
+        </div>
+        <div class="mt-2">
+          <p class="text-sm">Lorem ipsum dolor</p>
+          <div class="flex justify-between items-center">
+            <p class="font-semibold">S/ 000</p>
+          </div>
+          <p class="text-xs text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam</p>
+        </div>
+      </div>
+      
+      <div class="w-full sm:w-1/2 md:w-1/4 mb-4">
+        <div class="bg-yellow-400">
+          <img src="{{ url_for('static', filename='img/guantes/guantes1.jpg') }}" alt="Guantes relacionados" class="w-full h-48 object-contain">
+        </div>
+        <div class="mt-2">
+          <p class="text-sm">Lorem ipsum dolor</p>
+          <div class="flex justify-between items-center">
+            <p class="font-semibold">S/ 000</p>
+          </div>
+          <p class="text-xs text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam</p>
+        </div>
+      </div>
+      
+      <!-- Flechas de navegación derecha -->
+      <div class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 p-2 cursor-pointer">
+        <span class="text-3xl font-bold">»</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Estilos adicionales para mejorar la presentación */
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Ajustes para dispositivos móviles */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    h2 {
+      font-size: 2rem;
+    }
+  }
+</style>
+{% endblock %}

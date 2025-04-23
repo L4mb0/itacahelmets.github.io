@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itaca Helmets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0A1241;
+            --primary-yellow: #FFCC00;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- NAVBAR -->
+    <header class="bg-[var(--primary-blue)] text-white py-4">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <nav class="flex space-x-6 text-sm md:text-base">
+                <a href="{{ url_for('nosotros') }}" class="hover:underline">NOSOTROS</a>
+                <a href="{{ url_for('contacto') }}" class="hover:underline">CONTÁCTENOS</a>
+                <!--<a href="{{ url_for('faq') }}" class="hover:underline">CÓMO ELEGIR TU CASCO</a>-->
+            </nav>
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="h-12">
+            </a>
+            <a href="{{ url_for('catalogo') }}" class="bg-[var(--primary-yellow)] text-[var(--primary-blue)] px-4 py-2 rounded-md font-bold hover:bg-yellow-400">
+                Mira el Catálogo
+            </a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+         <!-- Contact Info Section -->
+        <div class="bg-white py-12 text-center">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-16">
+                    <!-- Email Section -->
+                    <div class="flex flex-col items-center">
+                        <img src="{{ url_for('static', filename='images/icono_email.png') }}" alt="Email" class="w-16 h-16 mb-4">
+                        <h3 class="font-bold text-blue-900 text-lg mb-1">CORREO</h3>
+                        <p class="text-sm">Para ventas y cotizaciones al por mayor escríbenos:</p>
+                        <p class="text-sm font-semibold">ventas@itacahelmets.com</p>
+                    </div>
+                    
+                    <!-- Phone Section -->
+                    <div class="flex flex-col items-center">
+                        <img src="{{ url_for('static', filename='images/icono_telefono.png') }}" alt="Teléfono" class="w-16 h-16 mb-4">
+                        <h3 class="font-bold text-blue-900 text-lg mb-1">TELÉFONO</h3>
+                        <p class="text-sm">Para ventas y cotizaciones al por mayor:</p>
+                        <p class="text-sm font-semibold">xxxxxxxxxxx</p>
+                    </div>
+                    
+                    <!-- Store Section -->
+                    <div class="flex flex-col items-center">
+                        <img src="{{ url_for('static', filename='images/icono_tienda.png') }}" alt="Tienda" class="w-16 h-16 mb-4">
+                        <h3 class="font-bold text-blue-900 text-lg mb-1">TIENDA</h3>
+                        <p class="text-sm">Visita nuestro Showroom en: </p>
+                        <p class="text-sm font-semibold">Calle San Lorenzo 1072 Surquillo, Lima</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blue Section with Logo and Links -->
+        <div class="bg-[var(--primary-blue)] text-white py-4">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-center md:items-start">
+                    <!-- Logo and Social Media -->
+                    <div class="mb-8 md:mb-0 text-center md:text-left">
+                        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Ítaca Logo" class="h-16 mx-auto md:mx-0 mb-4">
+                        <div class="flex justify-center md:justify-start space-x-4">
+                            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-facebook-square text-2xl"></i></a>
+                            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-instagram text-2xl"></i></a>
+                            <a href="#" class="text-white hover:text-gray-300"><i class="fab fa-youtube text-2xl"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Two Columns of Links -->
+                    <div class="grid grid-cols-2 gap-x-12 gap-y-2 text-center md:text-left">
+                        <div>
+                            <ul class="space-y-2 text-sm">
+                                <!--<li><a href="#" class="hover:underline">EXPLORE PRODUCTS</a></li>
+                                <li><a href="#" class="hover:underline">COSTUMER SUPPORT</a></li>
+                                <li><a href="#" class="hover:underline">ABOUT US</a></li>
+                                <li><a href="#" class="hover:underline">BLOG POSTS</a></li>
+                                <li><a href="#" class="hover:underline">SAFETY STANDARTS</a></li>-->
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="{{ url_for('nosotros') }}" class="hover:underline">NOSOTROS</a></li>
+                                <!--<li><a href="#" class="hover:underline">RETURN POLICY</a></li>-->
+                                <li><a href="{{ url_for('contacto') }}" class="hover:underline">CONTACTANOS</a></li>
+                                <li><a href="{{ url_for('faq') }}" class="hover:underline">FAQs</a></li>
+                                <li><a href="{{ url_for('proteccion_datos') }}" class="hover:underline">PROTECCIÓN DE DATOS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- White Bottom Strip -->
+        <div class="bg-white py-3">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm mb-3 md:mb-0">© 2025 Itaca Helmets - Todos los derechos reservados</p>
+                <div class="flex flex-wrap justify-center space-x-4 text-sm">
+                    <a href="#" class="text-gray-800 hover:underline">PRIVACY POLICY</a>
+                    <a href="#" class="text-gray-800 hover:underline">TERMS OF SERVICE</a>
+                    <a href="#" class="text-gray-800 hover:underline">COOKIES SETTINGS</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

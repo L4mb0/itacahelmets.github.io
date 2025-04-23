@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Contáctenos - Itaca Helmets{% endblock %}
+{% block content %}
+
+<!-- Sección de Contacto Principal -->
+<section class="py-16 container mx-auto px-4">
+  <div class="max-w-2xl mx-auto text-center mb-10">
+    <h1 class="text-5xl font-bold text-blue-900 mb-4">CONTÁCTANOS</h1>
+    <div class="h-1 bg-black w-full max-w-md mx-auto mb-4"></div>
+    <h2 class="text-3xl font-bold text-blue-900">CONOCE MÁS DE NOSOTROS</h2>
+    <div class="h-1 bg-black w-full max-w-md mx-auto mt-4"></div>
+  </div>
+  
+  <!-- Formulario de Contacto -->
+  <div class="max-w-md mx-auto">
+    <form action="/send_message" method="POST">
+      <div class="mb-4">
+        <input type="text" id="name" name="name" placeholder="NOMBRE" required class="w-full p-3 border border-gray-300 text-center">
+      </div>
+      
+      <div class="mb-4">
+        <input type="email" id="email" name="email" placeholder="E-MAIL" required class="w-full p-3 border border-gray-300 text-center">
+      </div>
+      
+      <div class="mb-4">
+        <textarea id="message" name="message" placeholder="MENSAJES" required class="w-full p-3 border border-gray-300 text-center h-40"></textarea>
+      </div>
+      
+      <div class="flex items-center mb-4">
+        <input type="checkbox" id="terms" name="terms" required class="mr-2 h-5 w-5 border-2 border-black">
+        <label for="terms" class="font-bold">ACEPTO LOS TÉRMINOS</label>
+      </div>
+      
+      <button type="submit" class="w-full bg-yellow-400 text-black font-bold py-3 mb-6">ENVIAR</button>
+      
+      <p class="text-sm text-gray-600 mb-12">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe
+</p>
+    </form>
+  </div>
+  
+
+{% endblock %}

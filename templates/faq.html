@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}FAQs - Itaca Helmets{% endblock %}
+{% block content %}
+
+<!-- Banner Section -->
+<section class="bg-[#0A1241] py-8 text-center">
+    <h1 class="text-white text-5xl font-bold mb-2">FAQs</h1>
+    <div class="mx-auto max-w-md border-b-2 border-white pb-1">
+        <p class="text-white">Encuentra respuestas a las preguntas más frecuentes</p>
+    </div>
+</section>
+
+<!-- FAQs Section -->
+<section class="container mx-auto p-8 max-w-3xl">
+    <!-- FAQ Item 1 -->
+    <div class="border-b-2 border-gray-300">
+        <button class="w-full text-left font-bold text-lg py-4 flex justify-between items-center faq-toggle">
+            <span>¿Por qué ITACA?</span>
+            <span class="text-black transform transition-transform duration-200">▼</span>
+        </button>
+        <div class="text-gray-700 pb-6 faq-content">
+            <p>Porque creemos que la verdadera riqueza del viaje no está en el destino, sino en el camino. ITACA nace para acompañar a quienes viven la ruta como una experiencia. Nuestros cascos y accesorios combinan estilo, seguridad y autenticidad, pensados para moteros que buscan algo más que solo llegar. Si para ti cada kilómetro cuenta, estás en el lugar correcto.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 2 -->
+    <div class="border-b-2 border-gray-300">
+        <button class="w-full text-left font-bold text-lg py-4 flex justify-between items-center faq-toggle">
+            <span>¿Dónde encuentro sus productos?</span>
+            <span class="text-black transform transition-transform duration-200">▼</span>
+        </button>
+        <div class="text-gray-700 pb-6 faq-content">
+            <p>Puedes encontrar todos nuestros modelos disponibles en nuestra tienda online <strong>https://moto22.pe/c/cascos-para-motociclistas/itaca/</strong>, o también en nuestro showroom en <strong>Calle San Lorenzo 1072, Surquillo - Lima, Perú</strong>. Si prefieres una atención personalizada, puedes escribirnos por WhatsApp o a través de nuestras redes sociales. ¡Estaremos felices de ayudarte a elegir tu próximo casco!</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 3 -->
+    <div class="border-b-2 border-gray-300">
+        <button class="w-full text-left font-bold text-lg py-4 flex justify-between items-center faq-toggle">
+            <span>¿Qué tipo de certificación tienen los cascos?</span>
+            <span class="text-black transform transition-transform duration-200">▼</span>
+        </button>
+        <div class="text-gray-700 pb-6 faq-content">
+            <p>Todos nuestros cascos cuentan con la certificación DOT, lo que garantiza que cumplen con los estándares internacionales de seguridad establecidos por el Departamento de Transporte de Estados Unidos. Esto significa que han pasado pruebas rigurosas de impacto, penetración y retención para brindarte la protección que necesitas en cada viaje.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 4 -->
+    <div class="border-b-2 border-gray-300">
+        <button class="w-full text-left font-bold text-lg py-4 flex justify-between items-center faq-toggle">
+            <span>Me interesa ser distribuidor de sus cascos</span>
+            <span class="text-black transform transition-transform duration-200">▼</span>
+        </button>
+        <div class="text-gray-700 pb-6 faq-content">
+            <p>Si estás interesado en formar parte de nuestra red de distribuidores, por favor escríbenos a ventas.empresas@moto22.pe con tus datos y tu requerimiento. Uno de nuestros asesores se pondrá en contacto contigo para contarte más sobre nuestros productos, condiciones comerciales y cotización.</p>
+        </div>
+    </div>
+
+    <!-- FAQ Item 5 -->
+    <div class="border-b-2 border-gray-300">
+        <button class="w-full text-left font-bold text-lg py-4 flex justify-between items-center faq-toggle">
+            <span>Lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+            <span class="text-black transform transition-transform duration-200">▼</span>
+        </button>
+        <div class="text-gray-700 pb-6 faq-content">
+            <p>Lorem ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+        </div>
+    </div>
+
+    <!-- Sección "¿Aún con preguntas?" -->
+    <div class="mt-12 text-center">
+        <h2 class="text-3xl font-bold mb-6">¿Aún con preguntas?</h2>
+        <a href="{{ url_for('contacto') }}" class="inline-block bg-[#0A1241] text-white px-12 py-3 font-bold border-2 border-yellow-400 hover:bg-blue-900 transition">CONTACTAR</a>
+    </div>
+</section>
+
+<style>
+    /* Estilos adicionales para replicar el diseño */
+    .faq-toggle {
+        font-weight: bold;
+    }
+    
+    .border-b-2 {
+        border-bottom-width: 2px !important;
+    }
+    
+
+    
+
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Ocultar todos los contenidos de FAQ al inicio
+        const contents = document.querySelectorAll('.faq-content');
+        contents.forEach(content => {
+            content.style.display = 'none';
+        });
+
+        // Añadir evento click a cada botón de FAQ
+        document.querySelectorAll(".faq-toggle").forEach(button => {
+            button.addEventListener("click", () => {
+                // Alternar la visibilidad del contenido de esta FAQ
+                const content = button.nextElementSibling;
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = 'block';
+                    button.querySelector('span:last-child').innerHTML = '&#9650;'; // Flecha hacia arriba
+                } else {
+                    content.style.display = 'none';
+                    button.querySelector('span:last-child').innerHTML = '&#9660;'; // Flecha hacia abajo
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}
