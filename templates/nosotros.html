@@ -49,10 +49,28 @@
   <div class="container mx-auto px-4">
     <div class="max-w-3xl mx-auto">
       <h2 class="text-3xl font-bold mb-2">SUBSCRÍBETE Y RECIBE UN CATÁLOGO</h2>
-      <form class="w-full">
+      
+      <!-- Actualizado: Formulario con ruta y método POST -->
+      <form method="POST" action="{{ url_for('subscribe') }}" class="w-full">
+        <!-- Agregar protección CSRF si se usa Flask-WTF -->
+        {% if csrf_token %}
+        {{ csrf_token() }}
+        {% endif %}
+        
+        <!-- Mensajes flash para retroalimentación -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="mb-4 p-3 {% if category == 'success' %}bg-green-100 text-green-800{% elif category == 'error' %}bg-red-100 text-red-800{% else %}bg-blue-100 text-blue-800{% endif %} rounded">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        
         <div class="flex mb-2">
-          <input type="email" placeholder="EMAIL" class="flex-grow border border-gray-300 px-4 py-2" required>
-          <button type="submit" class="bg-yellow-400 px-6 py-2 font-bold">SIGN UP</button>
+          <input type="email" name="email" placeholder="EMAIL" class="flex-grow border border-gray-300 px-4 py-2" required>
+          <button type="submit" class="bg-yellow-400 px-6 py-2 font-bold hover:bg-yellow-500 transition">SIGN UP</button>
         </div>
         <p class="text-xs text-gray-600 mt-2">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe</p>
       </form>

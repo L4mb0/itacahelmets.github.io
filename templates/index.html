@@ -33,7 +33,7 @@
         <div class="bg-blue-100 p-4 rounded">
           <img src="{{ url_for('static', filename='images/imola1.png') }}" alt="Casco Blanco" class="w-full h-auto">
           <div class="mt-4">
-            <p class="font-semibold">Lorem Ipsum dolor</p>
+            <p class="font-semibold">Casco Imola</p>
             <p class="font-bold">S/ 600</p>
           </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="bg-blue-900 p-4 rounded">
           <img src="{{ url_for('static', filename='images/lemans1.png') }}" alt="Casco Negro" class="w-full h-auto">
           <div class="mt-4 text-white">
-            <p class="font-semibold">Lorem Ipsum dolor</p>
+            <p class="font-semibold">Casco Lemans</p>
             <p class="font-bold">S/ 600</p>
           </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="bg-yellow-400 p-4 rounded">
           <img src="{{ url_for('static', filename='images/spa1.png') }}" alt="Casco Integral" class="w-full h-auto">
           <div class="mt-4">
-            <p class="font-semibold">Lorem Ipsum dolor</p>
+            <p class="font-semibold">Casco Spa</p>
             <p class="font-bold">S/ 600</p>
           </div>
         </div>
@@ -70,18 +70,16 @@
 </div>
 
 <!-- Sección de Beneficios con Video -->
-
-    <div class="w-full">
-      <div class="relative w-full aspect-video">
-        <video 
-          src="{{ url_for('static', filename='images/ITACA_HERO_SPOT_feb25.mp4') }}" 
-          class="absolute inset-0 w-full h-full object-cover rounded shadow-lg"
-          controls>
-          Tu navegador no soporta la reproducción de videos.
-        </video>
-      </div>
-    </div>
-
+<div class="w-full">
+  <div class="relative w-full aspect-video">
+    <video 
+      src="{{ url_for('static', filename='images/ITACA_HERO_SPOT_feb25.mp4') }}" 
+      class="absolute inset-0 w-full h-full object-cover rounded shadow-lg"
+      controls>
+      Tu navegador no soporta la reproducción de videos.
+    </video>
+  </div>
+</div>
 
 <!-- Sección de Testimonios -->
 <div class="bg-blue-900 text-white py-16">
@@ -108,7 +106,7 @@
         </div>
         <p class="mb-4">"Montar mi moto es como respirar profundo. Es mi escape, mi ritual, mi forma de conectar conmigo misma. No me interesa tanto a dónde voy, sino lo que siento mientras voy. Ítaca es esa sensación: velocidad, viento y alma en movimiento."
 </p>
-        <p class="font-bold">Ale “Galaxi Brownie”, 28</p>
+        <p class="font-bold">Ale "Galaxi Brownie", 28</p>
         <p class="font-bold">Motera/Influencer</p>
         <p>ICA, PERÚ</p>
       </div>
@@ -137,7 +135,7 @@
     <div class="flex flex-col md:flex-row items-center justify-between">
       <!-- Logo e Imagen -->
       <div class="w-full md:w-1/3 text-center md:text-left mb-8 md:mb-0">
-        <img src="{{ url_for('static', filename='images/palm_logo.png') }}" alt="Logo Palmera" class="w-48 h-48 mx-auto md:mx-0">
+        <img src="{{ url_for('static', filename='images/palm_logo.png') }}" alt="Logo Palmera" class="w-[350px] h-[350px] mx-auto md:mx-10">
       </div>
       
       <!-- Formulario -->
@@ -146,14 +144,30 @@
         <p class="text-2xl mb-6 text-black">Y RECIBE NUESTRO CATÁLOGO</p>
         <div class="h-1 bg-black w-full mb-6"></div>
         
-        <form class="max-w-lg">
-          <div class="mb-4">
-            <input type="email" placeholder="E-MAIL" class="w-full p-3 border border-gray-900 text-center">
-          </div>
-          <button type="submit" class="bg-blue-900 text-white py-2 px-6 font-bold w-full">SIGN UP</button>
+        <!-- Actualizado: Formulario con ruta y método POST -->
+        <form method="POST" action="{{ url_for('subscribe') }}" class="max-w-lg">
+          <!-- Agregar protección CSRF si se usa Flask-WTF -->
+          {% if csrf_token %}
+          {{ csrf_token() }}
+          {% endif %}
           
-          <p class="text-sm mt-4 text-black">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe
-</p>
+          <!-- Mensajes flash para retroalimentación -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="mb-4 p-3 {% if category == 'success' %}bg-green-100 text-green-800{% elif category == 'error' %}bg-red-100 text-red-800{% else %}bg-blue-100 text-blue-800{% endif %} rounded">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          
+          <div class="mb-4">
+            <input type="email" name="email" placeholder="E-MAIL" required class="w-full p-3 border border-gray-900 text-center">
+          </div>
+          <button type="submit" class="bg-blue-900 text-white py-2 px-6 font-bold w-full hover:bg-blue-800 transition">SIGN UP</button>
+          
+          <p class="text-sm mt-4 text-black">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe</p>
         </form>
       </div>
     </div>

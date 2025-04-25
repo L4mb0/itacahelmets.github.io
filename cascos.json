@@ -4,23 +4,23 @@
     "nombre": "Imola",
     "descripcion": "Un casco resistente y elegante inspirado en la pista de Imola.",
     "precio": "249.99",
-    "imagen_principal": "img/imola1.png",
-    "imagenes": ["img/imola2.png", "img/imola3.png", "img/imola4.png", "img/imola5.png"]
+    "imagen_principal": "images/imola1.png",
+    "imagenes": ["images/imola2.png", "images/imola3.png", "images/imola4.png", "images/imola5.png"]
   },
   {
     "tipo": "SPA",
-    "nombre": "Spa Storm",
+    "nombre": "Spa",
     "descripcion": "Diseño aerodinámico perfecto para los fanáticos de Spa-Francorchamps.",
     "precio": "269.99",
-    "imagen_principal": "img/spa1.png",
-    "imagenes": ["img/spa2.png", "img/spa3.png", "img/spa4.png", "img/spa5.png"]
+    "imagen_principal": "images/spa1.png",
+    "imagenes": ["images/spa2.png", "images/spa3.png", "images/spa4.png", "images/spa5.png"]
   },
   {
     "tipo": "LEMANS",
-    "nombre": "LeMans Racer",
+    "nombre": "Lemans",
     "descripcion": "Casco de alto rendimiento diseñado para velocidad y seguridad.",
     "precio": "299.99",
-    "imagen_principal": "img/lemans1.png",
-    "imagenes": ["img/lemans2.png", "img/lemans3.png", "img/lemans4.png", "img/lemans5.png"]
+    "imagen_principal": "images/lemans1.png",
+    "imagenes": ["images/lemans2.png", "images/lemans3.png", "images/lemans4.png", "images/lemans5.png"]
   }
 ]

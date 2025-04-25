@@ -13,7 +13,24 @@
   
   <!-- Formulario de Contacto -->
   <div class="max-w-md mx-auto">
-    <form action="/send_message" method="POST">
+    <!-- Mensajes flash para retroalimentación -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="mb-4 p-3 {% if category == 'success' %}bg-green-100 text-green-800{% elif category == 'error' %}bg-red-100 text-red-800{% else %}bg-blue-100 text-blue-800{% endif %} rounded">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    
+    <!-- Actualizado: Formulario con ruta correcta y método POST -->
+    <form action="{{ url_for('contact') }}" method="POST">
+      <!-- Agregar protección CSRF si se usa Flask-WTF -->
+      {% if csrf_token %}
+      {{ csrf_token() }}
+      {% endif %}
+      
       <div class="mb-4">
         <input type="text" id="name" name="name" placeholder="NOMBRE" required class="w-full p-3 border border-gray-300 text-center">
       </div>
@@ -27,16 +44,15 @@
       </div>
       
       <div class="flex items-center mb-4">
-        <input type="checkbox" id="terms" name="terms" required class="mr-2 h-5 w-5 border-2 border-black">
-        <label for="terms" class="font-bold">ACEPTO LOS TÉRMINOS</label>
+        <input type="checkbox" id="accept_terms" name="accept_terms" required class="mr-2 h-5 w-5 border-2 border-black">
+        <label for="accept_terms" class="font-bold">ACEPTO LOS TÉRMINOS</label>
       </div>
       
-      <button type="submit" class="w-full bg-yellow-400 text-black font-bold py-3 mb-6">ENVIAR</button>
+      <button type="submit" class="w-full bg-yellow-400 text-black font-bold py-3 mb-6 hover:bg-yellow-500 transition">ENVIAR</button>
       
-      <p class="text-sm text-gray-600 mb-12">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe
-</p>
+      <p class="text-sm text-gray-600 mb-12">Al enviar tu correo, aceptas que Moto22 S.A.C. trate tus datos personales conforme a la Ley N.º 29733 – Ley de Protección de Datos Personales, con la finalidad de enviarte nuestro catálogo digital, promociones y comunicaciones comerciales. La base legal para el tratamiento es tu consentimiento. Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando un correo a marketing@moto22.pe</p>
     </form>
   </div>
-  
+</section>
 
 {% endblock %}
